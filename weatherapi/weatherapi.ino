@@ -1,15 +1,15 @@
-// Esta es la librería para utilizar las funciones de red del ESP8266
 #include <ESP8266WiFi.h> 
 
-const char* ssid = "SSID"; // Rellena con el nombre de tu red WiFi
-const char* password = "Contraseña"; // Rellena con la contraseña de tu red WiFi
+const char* ssid = "Zhone_F121"; // Rellena con el nombre de tu red WiFi
+const char* password = "nala2021"; // Rellena con la contraseña de tu red WiFi
 
 const char* host = "api.wunderground.com";
-const char* apiKey = "tu clave API de wunderground.com"; // Puedes obtenerla en
+const char* apiKey = "4b0406d4febb40a28406d4febb70a209"; // Puedes obtenerla en
                                                          // https://www.wunderground.com/weather/api/
 
+const char * fingerprint = "67 8c 77 b9 8a 0a 41 1d df 3b 90 e6 46 d1 92 8a 02 eb 07 32";                                                         
+
 void setup() {
-    
   Serial.begin(115200);
   delay(10);
 
@@ -43,7 +43,7 @@ void loop() {
   Serial.println(host);
  
   // Creamos el cliente
-  WiFiClient client;
+  WiFiClientSecure client;
   const int httpPort = 80; // Puerto HTTP
   if (!client.connect(host, httpPort)) {
     // ¿hay algún error al conectar?
